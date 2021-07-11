@@ -1,0 +1,22 @@
+Execution instructions:
+
+1.Import the project to eclipse
+2.Go to runner class under /src/test/java/Runner/Runner.java  and run as Junit
+3.After execution, reports folder will be created and open the serenity html report to check the status of the report(Have attached the report file in the mail as well)
+
+
+Additional info:
+
+1.Created 2 scenarios as per the requirement with BDD and JAVA.
+2.Have used Cucumber JVM,Webdriver and Maven.
+3.Also added serenity plugin to get the better report view.
+4.Uploaded files in github repository.
+5.The given user credentials is not working. So created new username.
+
+Further improvements to develop framework:
+
+1.Serenity report can be enhanced.
+2.We can integrate the project with Jenkins and execute testcases from the Jenkins job instead of executing through eclipse.So that anyone can execute the script from their end.
+
+
+
