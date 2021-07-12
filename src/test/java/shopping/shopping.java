@@ -14,192 +14,221 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
+import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 
 
 public class shopping extends PageObject {
 	
-	WebDriver driver=null;
+	//@Managed
+	//WebgetDriver() getDriver()=null;
 	
 	public void openwebsite()
 	
 	{
-	 String driverpath=System.getProperty("user.dir");
-	 System.setProperty("webdriver.chrome.driver",driverpath+"/libs/chromedriver.exe");
-	 driver = new ChromeDriver();
+	// String getDriver()path=System.getProperty("user.dir");
+	 //System.setProperty("webgetDriver().chrome.getDriver()",getDriver()path+"/libs/chromegetDriver().exe");
+	 //getDriver() = new ChromegetDriver()();
 	 
-	driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS); 
-    driver.manage().window().maximize();
-    driver.get("http://automationpractice.com/");
+/**Removed driver instance from here and updated driver details in serenity.properties file to get better serenity reports with screen shots*/
+	
+	 
+    getDriver().manage().window().maximize();
+    getDriver().get("http://automationpractice.com/");
     System.out.println("User opened website successfully");
+   
 	}
 	
 	public void signin()
 	{
-		driver.findElement(By.xpath("//*[@class='login']")).click();
+		getDriver().findElement(By.xpath("//*[@class='login']")).click();
 		System.out.println("User clicked on Sign In link");
-		
+		Serenity.takeScreenshot();
 	}
 
 public void enterusernamepw(String username,String password)
 
 {
-	driver.findElement(By.name("email")).sendKeys(username);
-	driver.findElement(By.name("passwd")).sendKeys(password);
+	getDriver().findElement(By.name("email")).sendKeys(username);
+	getDriver().findElement(By.name("passwd")).sendKeys(password);
 	System.out.println("User entered username nad passsword");
+	Serenity.takeScreenshot();
 }
 
 public void btnsign()
 
 {
 
-	driver.findElement(By.name("SubmitLogin")).click();
+	getDriver().findElement(By.name("SubmitLogin")).click();
 	System.out.println("User clicked on Sign button");
+	Serenity.takeScreenshot();
 }
 
 public void btnsearchbox(String category)
 
 {
-	driver.findElement(By.name("search_query")).sendKeys(category);
-	driver.findElement(By.name("submit_search")).click();
+	getDriver().findElement(By.name("search_query")).sendKeys(category);
+	Serenity.takeScreenshot();
+	getDriver().findElement(By.name("submit_search")).click();
 	System.out.println("User entered Category of clothes");
+	Serenity.takeScreenshot();
 	}
 
 public void btnaddcart()
 
 {
 waitABit(1000);
-Actions action = new Actions(driver);
-WebElement mains= driver.findElement(By.xpath("//*[@class='product-image-container']"));
+Actions action = new Actions(getDriver());
+WebElement mains= getDriver().findElement(By.xpath("//*[@class='product-image-container']"));
 action.moveToElement(mains).perform();
 action.click(mains);
-driver.findElement(By.xpath("//*[@title='Add to cart']")).click();
+getDriver().findElement(By.xpath("//*[@title='Add to cart']")).click();
 System.out.println("User clicked addcart");
+Serenity.takeScreenshot();
 }
 
 public void btncheckout()
 {
 waitABit(1000);
-driver.findElement(By.xpath("//*[@title='Proceed to checkout']")).click();
+getDriver().findElement(By.xpath("//*[@title='Proceed to checkout']")).click();
 System.out.println("User clicked checkout");
+Serenity.takeScreenshot();
 }
 
 public void btncheckoutsummary()
 {
 waitABit(1000);
-
-driver.findElement(By.xpath("//*[@class='button btn btn-default standard-checkout button-medium']")).click();
+Serenity.takeScreenshot();
+getDriver().findElement(By.xpath("//*[@class='button btn btn-default standard-checkout button-medium']")).click();
 System.out.println("User clicked checkout in summary page");
+Serenity.takeScreenshot();
 }
 
 public void btncheckoutaddress()
 {
-
-driver.findElement(By.xpath("//*[@name='processAddress']")).click();
+Serenity.takeScreenshot();
+getDriver().findElement(By.xpath("//*[@name='processAddress']")).click();
 System.out.println("User clicked checkout on addresspage");
+Serenity.takeScreenshot();
 }
 
 public void btnterms()
 {
 	waitABit(1000);
-	driver.findElement(By.xpath("//*[@type='checkbox']")).click();
+	Serenity.takeScreenshot();
+	getDriver().findElement(By.xpath("//*[@type='checkbox']")).click();
 	System.out.println("User selected checkbox for terms and condition");
+	Serenity.takeScreenshot();
 }
 
 public void btncheckoutshipping()
 {
 	waitABit(1000);
-	driver.findElement(By.xpath("//*[@name='processCarrier']")).click();
+	Serenity.takeScreenshot();
+	getDriver().findElement(By.xpath("//*[@name='processCarrier']")).click();
 	System.out.println("User clicked checkout on shippingpage");
+	Serenity.takeScreenshot();
 }
 
 public void btnpayment()
 {
 	waitABit(1000);
-	driver.findElement(By.xpath("//*[@class='bankwire']")).click();
+	Serenity.takeScreenshot();
+	getDriver().findElement(By.xpath("//*[@class='bankwire']")).click();
 	System.out.println("User clicked on wire payment");
+	Serenity.takeScreenshot();
 }
 
 public void btnconfirm()
 {
 	waitABit(1000);
-	driver.findElement(By.xpath("//*[@class='button btn btn-default button-medium']")).click();
+	Serenity.takeScreenshot();
+	getDriver().findElement(By.xpath("//*[@class='button btn btn-default button-medium']")).click();
 	System.out.println("User clicked on order confirm button");
+	Serenity.takeScreenshot();
 }
 
 public void btnbackorder()
 {
 	waitABit(1000);
-	driver.findElement(By.xpath("//*[@title='Back to orders']")).click();
+	Serenity.takeScreenshot();
+	getDriver().findElement(By.xpath("//*[@title='Back to orders']")).click();
 	System.out.println("User clicked on back to order");
+	Serenity.takeScreenshot();
 }
 
 public void verifyorder()
 {
-	String actualString = driver.findElement(By.xpath("//*[@class='label dark']")).getText();
+	String actualString = getDriver().findElement(By.xpath("//*[@class='label dark']")).getText();
 	Assert.assertTrue(actualString.contains("On backorder"));
 	System.out.println("User verified the order status in history");
+	Serenity.takeScreenshot();
 }
 
 public void btnsignout()
 {
 
-	driver.findElement(By.xpath("//*[@class='logout']")).click();
-    driver.close();
+	getDriver().findElement(By.xpath("//*[@class='logout']")).click();
+	Serenity.takeScreenshot();
+    getDriver().close();
     
     System.out.println("User signout from the website");
-    
+    Serenity.takeScreenshot();
 }
 
 
 public void btnprofile()
 {
 
-	driver.findElement(By.xpath("//*[@class='account']")).click();
+	getDriver().findElement(By.xpath("//*[@class='account']")).click();
 	System.out.println("User clicked on user profile");
+	Serenity.takeScreenshot();
 	}
 
 
 public void lnkpersonalinfo()
 {
 	
-	driver.findElement(By.xpath("//*[@title='Information']")).click();
+	getDriver().findElement(By.xpath("//*[@title='Information']")).click();
 	System.out.println("User clicked on user personal information");
-    
+	Serenity.takeScreenshot();
 }
 
 public void updatename(String firstname,String password)
 {
 
-	driver.findElement(By.id("firstname")).clear();
-	driver.findElement(By.id("firstname")).sendKeys(firstname);
-	JavascriptExecutor js = (JavascriptExecutor) driver;
+	getDriver().findElement(By.id("firstname")).clear();
+	getDriver().findElement(By.id("firstname")).sendKeys(firstname);
+	Serenity.takeScreenshot();
+	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	js.executeScript("window.scrollBy(0,400)","");
-	driver.findElement(By.id("old_passwd")).sendKeys(password);
+	Serenity.takeScreenshot();
+	getDriver().findElement(By.id("old_passwd")).sendKeys(password);
 	System.out.println("User updated firstname");
-    
+	Serenity.takeScreenshot();
 }
 
 public void btnsave()
 {
 
-	driver.findElement(By.name("submitIdentity")).click();
+	getDriver().findElement(By.name("submitIdentity")).click();
 	System.out.println("User saved the updated firstname");
-    
+	Serenity.takeScreenshot();
 }
 
 public void verifyupdatemsg()
 {
 
-	String actualString = driver.findElement(By.xpath("//*[@class='alert alert-success']")).getText();
+	String actualString = getDriver().findElement(By.xpath("//*[@class='alert alert-success']")).getText();
 	Assert.assertTrue(actualString.contains("Your personal information has been successfully updated."));
 	System.out.println("User verified sucessful message");
-    
+	Serenity.takeScreenshot();
 }
 public void scrolldown()
 {
-	JavascriptExecutor js = (JavascriptExecutor) driver;
+	Serenity.takeScreenshot();
+	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	js.executeScript("window.scrollBy(0,700)","");	
-		
+	Serenity.takeScreenshot();	
 }
 }
